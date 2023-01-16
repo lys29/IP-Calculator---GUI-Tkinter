@@ -11,11 +11,11 @@ class Window(Frame):
         self.pack(fill=BOTH)
         
     #Background
-        IMAGE_PATH = 'bg.png'
-        WIDTH, HEIGHT = 1050, 450
+        IMAGE_PATH = 'bg.jpg'
+        WIDTH, HEIGHT = 870, 480
         
         img = ImageTk.PhotoImage(Image.open(IMAGE_PATH).resize((WIDTH, HEIGHT), Image.ANTIALIAS))
-        lbl = tk.Label(self, image=img)
+        lbl = tk.Label(root, image=img)
         root.wm_attributes("-transparentcolor", 'grey')
         lbl.img = img 
         lbl.place(relx=0.5, rely=0.5, anchor='center') 
@@ -34,47 +34,47 @@ class Window(Frame):
         #width = 3
         #for i in range(height): #Rows
             #for j in range(width): #Columns
-                #b = Entry(self, text="")
+                #b = Entry(root, text="")
                 #b.grid(row=i, column=j, padx=100)
                 
-        text = Label(self, text="IP Calculator Program", font=("ubuntu", 24), bg='light grey')
-        text.grid(row=1, column=1, pady=50)
+        text = Label(root, text="IP Calculator", font=("ubuntu", 28), bg='light grey')
+        text.place(x=100, y=85, anchor='sw')
     #IP Address
-        ia = Label(self, text="IP Address:", font=("Helvetica", 14), bg='light grey')
-        ia.grid(row=2, column=1, sticky=W, padx=100)
+        ia = Label(root, text="IP Address:", font=("Helvetica", 20), bg='light grey')
+        ia.place(x=55, y=135, anchor='sw')
         
-        ip_entry = Entry(self, font=("Helvetica", 14))
-        ip_entry.grid(row=3, column=1, sticky="we", columnspan=2, padx=93)
+        ip_entry = Entry(root, font=("Helvetica", 20))
+        ip_entry.place(x=240, y=135, anchor='sw', width=210)
     #Subnet Mask 
-        sm = Label(self, text="Subnet Mask:", font=("Helvetica", 14), bg='light grey')
-        sm.grid(row=4, column=1, sticky=W, padx=100, pady=5)
+        sm = Label(root, text="Subnet Mask:", font=("Helvetica", 20), bg='light grey')
+        sm.place(x=55, y=190, anchor='sw')
         
-        subnet_entry = Entry(self, font=("Helvetica", 14))
-        subnet_entry.grid(row=4, column=2, sticky=W, columnspan=10)
+        subnet_entry = Entry(root, font=("Helvetica", 20))
+        subnet_entry.place(x=240, y=155, width=210)
     #Network Address
-        n = Label(self, text="Network Address:", font=("Helvetica", 14), bg='light grey')
-        n.grid(row=5, column=1, sticky=W, padx=100, pady=5)
+        n = Label(root, text="Network Address:", font=("Helvetica", 20), bg='light grey')
+        n.place(x=55, y=250, anchor='sw')
         network_address = StringVar()
-        network_address_entry = Entry(self, font=("Helvetica", 14), textvariable=network_address, state="readonly")
-        network_address_entry.grid(row=5, column=2, sticky=W, columnspan=10)
+        network_address_entry = Entry(root, font=("Helvetica", 20), textvariable=network_address, state="readonly")
+        network_address_entry.place(x=305,y=210, width=210)
     #Broadcast Address
-        bc = Label(self, text="Broadcast Address:", font=("Helvetica", 14), bg='light grey')
-        bc.grid(row=6, column=1, sticky=W, padx=100, pady=5)
+        bc = Label(root, text="Broadcast Address:", font=("Helvetica", 20), bg='light grey')
+        bc.place(x=55, y=300, anchor='sw')
         broadcast_address = StringVar()
-        broadcast_address_entry = Entry(self, font=("Helvetica", 14), textvariable=broadcast_address, state="readonly" )
-        broadcast_address_entry.grid(row=6, column=2, sticky=W, columnspan=10)
+        broadcast_address_entry = Entry(root, font=("Helvetica", 20), textvariable=broadcast_address, state="readonly" )
+        broadcast_address_entry.place(x=305, y=260, width=210)
     #Total Number of Hosts
-        noa = Label(self, text="Total Number of Hosts:", font=("Helvetica", 14), bg='light grey')
-        noa.grid(row=7, column=1, sticky=W, padx=100, pady=5)
+        noa = Label(root, text="Total Number of Hosts:", font=("Helvetica", 20), bg='light grey')
+        noa.place(x=55, y=345, anchor='sw')
         Total_Number_of_Hosts = StringVar()
-        Total_Number_of_Hosts_Entry = Entry(self, font=("Helvetica", 14), textvariable=Total_Number_of_Hosts, state="readonly")
-        Total_Number_of_Hosts_Entry.grid(row=8, column=1, sticky="we", columnspan=2, padx=93)
+        Total_Number_of_Hosts_Entry = Entry(root, font=("Helvetica", 20), textvariable=Total_Number_of_Hosts, state="readonly")
+        Total_Number_of_Hosts_Entry.place(x=355, y=310, width=210)
         
-        Sub = Button(self, text="Calculate", command=solve, font=("Helvetica", 14))
-        Sub.grid(row=9, column=2, sticky="we", columnspan=2, padx=100, pady=15)
+        Sub = Button(root, text="Calculate", command=solve, font=("Inter", 19), border=0, background='light grey')
+        Sub.place(x=160, y=425, anchor='sw')
         
 root = tk.Tk()
 app = Window(root)
 root.title("IP Calculator")
-root.geometry("750x440")
+root.geometry("791x445")
 root.mainloop()
